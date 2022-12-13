@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchVC: UIViewController {
-
+    
     // MARK: - UI Elements
     
     let logoImageView       = UIImageView(image: UIImage(named: "gh-logo")!)
@@ -51,6 +51,7 @@ class SearchVC: UIViewController {
     
     private func configureTextField() {
         view.addSubview(usernameTextField)
+        usernameTextField.delegate = self
         
         NSLayoutConstraint.activate([
             usernameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -63,6 +64,7 @@ class SearchVC: UIViewController {
     
     private func configureButton() {
         view.addSubview(searchButton)
+        searchButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
             searchButton.leadingAnchor.constraint(equalTo: usernameTextField.leadingAnchor),
@@ -75,5 +77,25 @@ class SearchVC: UIViewController {
     private func createTapGesture() {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
+    }
+    
+    @objc func pushFollowerListVC() {
+        guard !usernameTextField.text!.isEmpty else { return }
+        
+        let followerListVC = FollowerListVC()
+        followerListVC.username = usernameTextField.text
+        followerListVC.title = usernameTextField.text
+        
+        navigationController?.pushViewController(followerListVC, animated: true)
+    }
+}
+
+extension SearchVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            pushFollowerListVC()
+            return true
+        }
+        return false
     }
 }

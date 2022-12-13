@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB83AB532948DDA400B292D3 /* FollowerListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83AB522948DDA400B292D3 /* FollowerListVC.swift */; };
 		FBB2DF102948BC41005F1134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF0F2948BC41005F1134 /* AppDelegate.swift */; };
 		FBB2DF122948BC41005F1134 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF112948BC41005F1134 /* SceneDelegate.swift */; };
 		FBB2DF192948BC43005F1134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBB2DF182948BC43005F1134 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FB83AB522948DDA400B292D3 /* FollowerListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerListVC.swift; sourceTree = "<group>"; };
 		FBB2DF0C2948BC41005F1134 /* GitHub-Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub-Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB2DF0F2948BC41005F1134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBB2DF112948BC41005F1134 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 				FBB2DF252948C511005F1134 /* FavoritesListVC.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		FB83AB512948DD9300B292D3 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				FB83AB522948DDA400B292D3 /* FollowerListVC.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		FBB2DF032948BC41005F1134 = {
@@ -106,6 +116,7 @@
 		FBB2DF312948D03D005F1134 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FB83AB512948DD9300B292D3 /* Other */,
 				FB83AB502948DAF500B292D3 /* Core */,
 			);
 			path = Controllers;
@@ -181,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB83AB532948DDA400B292D3 /* FollowerListVC.swift in Sources */,
 				FBB2DF262948C511005F1134 /* FavoritesListVC.swift in Sources */,
 				FBB2DF242948C4DB005F1134 /* SearchVC.swift in Sources */,
 				FBB2DF302948CDA7005F1134 /* GFTextField.swift in Sources */,
