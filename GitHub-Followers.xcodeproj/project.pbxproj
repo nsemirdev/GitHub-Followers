@@ -9,19 +9,25 @@
 /* Begin PBXBuildFile section */
 		FBB2DF102948BC41005F1134 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF0F2948BC41005F1134 /* AppDelegate.swift */; };
 		FBB2DF122948BC41005F1134 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF112948BC41005F1134 /* SceneDelegate.swift */; };
-		FBB2DF142948BC41005F1134 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF132948BC41005F1134 /* ViewController.swift */; };
 		FBB2DF192948BC43005F1134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBB2DF182948BC43005F1134 /* Assets.xcassets */; };
 		FBB2DF1C2948BC43005F1134 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBB2DF1A2948BC43005F1134 /* LaunchScreen.storyboard */; };
+		FBB2DF242948C4DB005F1134 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF232948C4DB005F1134 /* SearchVC.swift */; };
+		FBB2DF262948C511005F1134 /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF252948C511005F1134 /* FavoritesListVC.swift */; };
+		FBB2DF292948C5E0005F1134 /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF282948C5DF005F1134 /* UITabBarController.swift */; };
+		FBB2DF2B2948C67D005F1134 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF2A2948C67D005F1134 /* UINavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FBB2DF0C2948BC41005F1134 /* GitHub-Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub-Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB2DF0F2948BC41005F1134 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBB2DF112948BC41005F1134 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FBB2DF132948BC41005F1134 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FBB2DF182948BC43005F1134 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBB2DF1B2948BC43005F1134 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBB2DF1D2948BC43005F1134 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBB2DF232948C4DB005F1134 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		FBB2DF252948C511005F1134 /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
+		FBB2DF282948C5DF005F1134 /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
+		FBB2DF2A2948C67D005F1134 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +60,25 @@
 		FBB2DF0E2948BC41005F1134 /* GitHub-Followers */ = {
 			isa = PBXGroup;
 			children = (
+				FBB2DF272948C5D3005F1134 /* Extensions */,
 				FBB2DF0F2948BC41005F1134 /* AppDelegate.swift */,
 				FBB2DF112948BC41005F1134 /* SceneDelegate.swift */,
-				FBB2DF132948BC41005F1134 /* ViewController.swift */,
+				FBB2DF252948C511005F1134 /* FavoritesListVC.swift */,
+				FBB2DF232948C4DB005F1134 /* SearchVC.swift */,
 				FBB2DF182948BC43005F1134 /* Assets.xcassets */,
 				FBB2DF1A2948BC43005F1134 /* LaunchScreen.storyboard */,
 				FBB2DF1D2948BC43005F1134 /* Info.plist */,
 			);
 			path = "GitHub-Followers";
+			sourceTree = "<group>";
+		};
+		FBB2DF272948C5D3005F1134 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FBB2DF282948C5DF005F1134 /* UITabBarController.swift */,
+				FBB2DF2A2948C67D005F1134 /* UINavigationController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,8 +151,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBB2DF142948BC41005F1134 /* ViewController.swift in Sources */,
+				FBB2DF262948C511005F1134 /* FavoritesListVC.swift in Sources */,
+				FBB2DF242948C4DB005F1134 /* SearchVC.swift in Sources */,
 				FBB2DF102948BC41005F1134 /* AppDelegate.swift in Sources */,
+				FBB2DF2B2948C67D005F1134 /* UINavigationController.swift in Sources */,
+				FBB2DF292948C5E0005F1134 /* UITabBarController.swift in Sources */,
 				FBB2DF122948BC41005F1134 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
