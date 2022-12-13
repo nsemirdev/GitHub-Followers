@@ -15,6 +15,7 @@
 		FBB2DF262948C511005F1134 /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF252948C511005F1134 /* FavoritesListVC.swift */; };
 		FBB2DF292948C5E0005F1134 /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF282948C5DF005F1134 /* UITabBarController.swift */; };
 		FBB2DF2B2948C67D005F1134 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF2A2948C67D005F1134 /* UINavigationController.swift */; };
+		FBB2DF2E2948CA49005F1134 /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2DF2D2948CA49005F1134 /* GFButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FBB2DF252948C511005F1134 /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		FBB2DF282948C5DF005F1134 /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
 		FBB2DF2A2948C67D005F1134 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		FBB2DF2D2948CA49005F1134 /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		FBB2DF0E2948BC41005F1134 /* GitHub-Followers */ = {
 			isa = PBXGroup;
 			children = (
+				FBB2DF2C2948CA3B005F1134 /* CustomViews */,
 				FBB2DF272948C5D3005F1134 /* Extensions */,
 				FBB2DF0F2948BC41005F1134 /* AppDelegate.swift */,
 				FBB2DF112948BC41005F1134 /* SceneDelegate.swift */,
@@ -79,6 +82,14 @@
 				FBB2DF2A2948C67D005F1134 /* UINavigationController.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FBB2DF2C2948CA3B005F1134 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				FBB2DF2D2948CA49005F1134 /* GFButton.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +165,7 @@
 				FBB2DF262948C511005F1134 /* FavoritesListVC.swift in Sources */,
 				FBB2DF242948C4DB005F1134 /* SearchVC.swift in Sources */,
 				FBB2DF102948BC41005F1134 /* AppDelegate.swift in Sources */,
+				FBB2DF2E2948CA49005F1134 /* GFButton.swift in Sources */,
 				FBB2DF2B2948C67D005F1134 /* UINavigationController.swift in Sources */,
 				FBB2DF292948C5E0005F1134 /* UITabBarController.swift in Sources */,
 				FBB2DF122948BC41005F1134 /* SceneDelegate.swift in Sources */,
