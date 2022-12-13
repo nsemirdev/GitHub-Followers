@@ -34,6 +34,7 @@ class SearchVC: UIViewController {
         configureImageView()
         configureTextField()
         configureButton()
+        createTapGesture()
     }
     
     private func configureImageView() {
@@ -69,5 +70,10 @@ class SearchVC: UIViewController {
             searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             searchButton.heightAnchor.constraint(equalToConstant: 50)
         ])
+    }
+    
+    private func createTapGesture() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
     }
 }

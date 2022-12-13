@@ -45,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB83AB502948DAF500B292D3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FBB2DF232948C4DB005F1134 /* SearchVC.swift */,
+				FBB2DF252948C511005F1134 /* FavoritesListVC.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		FBB2DF032948BC41005F1134 = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +106,7 @@
 		FBB2DF312948D03D005F1134 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FBB2DF232948C4DB005F1134 /* SearchVC.swift */,
-				FBB2DF252948C511005F1134 /* FavoritesListVC.swift */,
+				FB83AB502948DAF500B292D3 /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
