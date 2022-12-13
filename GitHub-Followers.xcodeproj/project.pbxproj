@@ -64,12 +64,11 @@
 		FBB2DF0E2948BC41005F1134 /* GitHub-Followers */ = {
 			isa = PBXGroup;
 			children = (
+				FBB2DF312948D03D005F1134 /* Controllers */,
 				FBB2DF2C2948CA3B005F1134 /* CustomViews */,
 				FBB2DF272948C5D3005F1134 /* Extensions */,
 				FBB2DF0F2948BC41005F1134 /* AppDelegate.swift */,
 				FBB2DF112948BC41005F1134 /* SceneDelegate.swift */,
-				FBB2DF252948C511005F1134 /* FavoritesListVC.swift */,
-				FBB2DF232948C4DB005F1134 /* SearchVC.swift */,
 				FBB2DF182948BC43005F1134 /* Assets.xcassets */,
 				FBB2DF1A2948BC43005F1134 /* LaunchScreen.storyboard */,
 				FBB2DF1D2948BC43005F1134 /* Info.plist */,
@@ -93,6 +92,15 @@
 				FBB2DF2F2948CDA7005F1134 /* GFTextField.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		FBB2DF312948D03D005F1134 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FBB2DF232948C4DB005F1134 /* SearchVC.swift */,
+				FBB2DF252948C511005F1134 /* FavoritesListVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
