@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class SearchVC: UIViewController {
     
@@ -39,39 +40,37 @@ class SearchVC: UIViewController {
     
     private func configureImageView() {
         view.addSubview(logoImageView)
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        NSLayoutConstraint.activate([
-            logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80),
-            logoImageView.heightAnchor.constraint(equalToConstant: 200),
-            logoImageView.widthAnchor.constraint(equalToConstant: 200)
-        ])
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(80)
+            make.width.height.equalTo(200)
+        }
     }
     
     private func configureTextField() {
         view.addSubview(usernameTextField)
         usernameTextField.delegate = self
         
-        NSLayoutConstraint.activate([
-            usernameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            usernameTextField.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 60),
-            usernameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
-            usernameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
-            usernameTextField.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        usernameTextField.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(self.logoImageView.snp.bottom).offset(60)
+            make.leading.equalTo(self.view.snp.leading).offset(50)
+            make.trailing.equalTo(view.snp.trailing).offset(-50)
+            make.height.equalTo(50)
+        }
     }
     
     private func configureButton() {
         view.addSubview(searchButton)
         searchButton.addTarget(self, action: #selector(pushFollowerListVC), for: .touchUpInside)
         
-        NSLayoutConstraint.activate([
-            searchButton.leadingAnchor.constraint(equalTo: usernameTextField.leadingAnchor),
-            searchButton.trailingAnchor.constraint(equalTo: usernameTextField.trailingAnchor),
-            searchButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -50),
-            searchButton.heightAnchor.constraint(equalToConstant: 50)
-        ])
+        searchButton.snp.makeConstraints { make in
+            make.leading.equalTo(self.usernameTextField.snp.leading)
+            make.trailing.equalTo(self.usernameTextField.snp.trailing)
+            make.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).offset(-50)
+            make.height.equalTo(50)
+        }
     }
     
     private func createTapGesture() {

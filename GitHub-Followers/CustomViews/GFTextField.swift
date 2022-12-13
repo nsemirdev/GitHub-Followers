@@ -18,9 +18,7 @@ class GFTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure() {
-        translatesAutoresizingMaskIntoConstraints = false
-        
+    private func configure() {        
         layer.cornerRadius = 10
         layer.borderWidth = 2
         layer.borderColor = UIColor.systemGray4.cgColor
