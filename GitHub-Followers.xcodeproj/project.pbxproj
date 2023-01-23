@@ -10,6 +10,7 @@
 		2D369B79297F303E00A3F60B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B78297F303E00A3F60B /* SearchVC.swift */; };
 		2D369B7B297F306400A3F60B /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B7A297F306400A3F60B /* FavoritesListVC.swift */; };
 		2D369B7D297F333100A3F60B /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B7C297F333100A3F60B /* MainBuilder.swift */; };
+		2D369B82297F358000A3F60B /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B81297F358000A3F60B /* GFButton.swift */; };
 		2DFE5E28297F254D00698BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE5E27297F254D00698BED /* AppDelegate.swift */; };
 		2DFE5E2A297F254D00698BED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE5E29297F254D00698BED /* SceneDelegate.swift */; };
 		2DFE5E31297F254E00698BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE5E30297F254E00698BED /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 		2D369B78297F303E00A3F60B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		2D369B7A297F306400A3F60B /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		2D369B7C297F333100A3F60B /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
+		2D369B81297F358000A3F60B /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
 		2DFE5E24297F254D00698BED /* GitHub-Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub-Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFE5E27297F254D00698BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DFE5E29297F254D00698BED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +41,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D369B7E297F354D00A3F60B /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2DFE5E27297F254D00698BED /* AppDelegate.swift */,
+				2DFE5E29297F254D00698BED /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2D369B7F297F355400A3F60B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2DFE5E30297F254E00698BED /* Assets.xcassets */,
+				2DFE5E32297F254E00698BED /* LaunchScreen.storyboard */,
+				2DFE5E35297F254E00698BED /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2D369B80297F356E00A3F60B /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				2D369B7C297F333100A3F60B /* MainBuilder.swift */,
+			);
+			path = Builders;
+			sourceTree = "<group>";
+		};
 		2DFE5E1B297F254D00698BED = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +87,12 @@
 		2DFE5E26297F254D00698BED /* GitHub-Followers */ = {
 			isa = PBXGroup;
 			children = (
-				2DFE5E27297F254D00698BED /* AppDelegate.swift */,
-				2DFE5E29297F254D00698BED /* SceneDelegate.swift */,
-				2DFE5E30297F254E00698BED /* Assets.xcassets */,
-				2DFE5E32297F254E00698BED /* LaunchScreen.storyboard */,
-				2DFE5E35297F254E00698BED /* Info.plist */,
+				2D369B80297F356E00A3F60B /* Builders */,
+				2D369B7F297F355400A3F60B /* Resources */,
+				2D369B7E297F354D00A3F60B /* App */,
 				2D369B78297F303E00A3F60B /* SearchVC.swift */,
 				2D369B7A297F306400A3F60B /* FavoritesListVC.swift */,
-				2D369B7C297F333100A3F60B /* MainBuilder.swift */,
+				2D369B81297F358000A3F60B /* GFButton.swift */,
 			);
 			path = "GitHub-Followers";
 			sourceTree = "<group>";
@@ -142,6 +169,7 @@
 			files = (
 				2D369B7B297F306400A3F60B /* FavoritesListVC.swift in Sources */,
 				2D369B79297F303E00A3F60B /* SearchVC.swift in Sources */,
+				2D369B82297F358000A3F60B /* GFButton.swift in Sources */,
 				2DFE5E28297F254D00698BED /* AppDelegate.swift in Sources */,
 				2DFE5E2A297F254D00698BED /* SceneDelegate.swift in Sources */,
 				2D369B7D297F333100A3F60B /* MainBuilder.swift in Sources */,
@@ -285,7 +313,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HG8VJQPKXZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GitHub-Followers/Info.plist";
+				INFOPLIST_FILE = "GitHub-Followers/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
@@ -315,7 +343,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = HG8VJQPKXZ;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "GitHub-Followers/Info.plist";
+				INFOPLIST_FILE = "GitHub-Followers/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
