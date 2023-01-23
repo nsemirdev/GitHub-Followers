@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D369B79297F303E00A3F60B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B78297F303E00A3F60B /* SearchVC.swift */; };
+		2D369B7B297F306400A3F60B /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B7A297F306400A3F60B /* FavoritesListVC.swift */; };
+		2D369B7D297F333100A3F60B /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B7C297F333100A3F60B /* MainBuilder.swift */; };
 		2DFE5E28297F254D00698BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE5E27297F254D00698BED /* AppDelegate.swift */; };
 		2DFE5E2A297F254D00698BED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE5E29297F254D00698BED /* SceneDelegate.swift */; };
-		2DFE5E2C297F254D00698BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE5E2B297F254D00698BED /* ViewController.swift */; };
 		2DFE5E31297F254E00698BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE5E30297F254E00698BED /* Assets.xcassets */; };
 		2DFE5E34297F254E00698BED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE5E32297F254E00698BED /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D369B78297F303E00A3F60B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		2D369B7A297F306400A3F60B /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
+		2D369B7C297F333100A3F60B /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		2DFE5E24297F254D00698BED /* GitHub-Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub-Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFE5E27297F254D00698BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DFE5E29297F254D00698BED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2DFE5E2B297F254D00698BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2DFE5E30297F254E00698BED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DFE5E33297F254E00698BED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DFE5E35297F254E00698BED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,10 +60,12 @@
 			children = (
 				2DFE5E27297F254D00698BED /* AppDelegate.swift */,
 				2DFE5E29297F254D00698BED /* SceneDelegate.swift */,
-				2DFE5E2B297F254D00698BED /* ViewController.swift */,
 				2DFE5E30297F254E00698BED /* Assets.xcassets */,
 				2DFE5E32297F254E00698BED /* LaunchScreen.storyboard */,
 				2DFE5E35297F254E00698BED /* Info.plist */,
+				2D369B78297F303E00A3F60B /* SearchVC.swift */,
+				2D369B7A297F306400A3F60B /* FavoritesListVC.swift */,
+				2D369B7C297F333100A3F60B /* MainBuilder.swift */,
 			);
 			path = "GitHub-Followers";
 			sourceTree = "<group>";
@@ -134,9 +140,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DFE5E2C297F254D00698BED /* ViewController.swift in Sources */,
+				2D369B7B297F306400A3F60B /* FavoritesListVC.swift in Sources */,
+				2D369B79297F303E00A3F60B /* SearchVC.swift in Sources */,
 				2DFE5E28297F254D00698BED /* AppDelegate.swift in Sources */,
 				2DFE5E2A297F254D00698BED /* SceneDelegate.swift in Sources */,
+				2D369B7D297F333100A3F60B /* MainBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
