@@ -11,6 +11,9 @@
 		2D369B7B297F306400A3F60B /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B7A297F306400A3F60B /* FavoritesListVC.swift */; };
 		2D369B7D297F333100A3F60B /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B7C297F333100A3F60B /* MainBuilder.swift */; };
 		2D369B82297F358000A3F60B /* GFButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B81297F358000A3F60B /* GFButton.swift */; };
+		2D369B86297F38D400A3F60B /* GFTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B85297F38D400A3F60B /* GFTextField.swift */; };
+		2D369B89297F3B4A00A3F60B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2D369B88297F3B4A00A3F60B /* SnapKit */; };
+		2D369B8C297F3C0400A3F60B /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B8B297F3C0400A3F60B /* UIView+.swift */; };
 		2DFE5E28297F254D00698BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE5E27297F254D00698BED /* AppDelegate.swift */; };
 		2DFE5E2A297F254D00698BED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE5E29297F254D00698BED /* SceneDelegate.swift */; };
 		2DFE5E31297F254E00698BED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DFE5E30297F254E00698BED /* Assets.xcassets */; };
@@ -22,6 +25,8 @@
 		2D369B7A297F306400A3F60B /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		2D369B7C297F333100A3F60B /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
 		2D369B81297F358000A3F60B /* GFButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFButton.swift; sourceTree = "<group>"; };
+		2D369B85297F38D400A3F60B /* GFTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTextField.swift; sourceTree = "<group>"; };
+		2D369B8B297F3C0400A3F60B /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		2DFE5E24297F254D00698BED /* GitHub-Followers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHub-Followers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DFE5E27297F254D00698BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DFE5E29297F254D00698BED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D369B89297F3B4A00A3F60B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +74,31 @@
 			path = Builders;
 			sourceTree = "<group>";
 		};
+		2D369B83297F384F00A3F60B /* General */ = {
+			isa = PBXGroup;
+			children = (
+				2D369B84297F385300A3F60B /* Views */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		2D369B84297F385300A3F60B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D369B81297F358000A3F60B /* GFButton.swift */,
+				2D369B85297F38D400A3F60B /* GFTextField.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2D369B8A297F3BFC00A3F60B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2D369B8B297F3C0400A3F60B /* UIView+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		2DFE5E1B297F254D00698BED = {
 			isa = PBXGroup;
 			children = (
@@ -87,12 +118,13 @@
 		2DFE5E26297F254D00698BED /* GitHub-Followers */ = {
 			isa = PBXGroup;
 			children = (
+				2D369B8A297F3BFC00A3F60B /* Extensions */,
+				2D369B83297F384F00A3F60B /* General */,
 				2D369B80297F356E00A3F60B /* Builders */,
 				2D369B7F297F355400A3F60B /* Resources */,
 				2D369B7E297F354D00A3F60B /* App */,
 				2D369B78297F303E00A3F60B /* SearchVC.swift */,
 				2D369B7A297F306400A3F60B /* FavoritesListVC.swift */,
-				2D369B81297F358000A3F60B /* GFButton.swift */,
 			);
 			path = "GitHub-Followers";
 			sourceTree = "<group>";
@@ -113,6 +145,9 @@
 			dependencies = (
 			);
 			name = "GitHub-Followers";
+			packageProductDependencies = (
+				2D369B88297F3B4A00A3F60B /* SnapKit */,
+			);
 			productName = "GitHub-Followers";
 			productReference = 2DFE5E24297F254D00698BED /* GitHub-Followers.app */;
 			productType = "com.apple.product-type.application";
@@ -141,6 +176,9 @@
 				Base,
 			);
 			mainGroup = 2DFE5E1B297F254D00698BED;
+			packageReferences = (
+				2D369B87297F3B4A00A3F60B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 2DFE5E25297F254D00698BED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,8 +209,10 @@
 				2D369B79297F303E00A3F60B /* SearchVC.swift in Sources */,
 				2D369B82297F358000A3F60B /* GFButton.swift in Sources */,
 				2DFE5E28297F254D00698BED /* AppDelegate.swift in Sources */,
+				2D369B8C297F3C0400A3F60B /* UIView+.swift in Sources */,
 				2DFE5E2A297F254D00698BED /* SceneDelegate.swift in Sources */,
 				2D369B7D297F333100A3F60B /* MainBuilder.swift in Sources */,
+				2D369B86297F38D400A3F60B /* GFTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +426,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2D369B87297F3B4A00A3F60B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2D369B88297F3B4A00A3F60B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2D369B87297F3B4A00A3F60B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2DFE5E1C297F254D00698BED /* Project object */;
 }
