@@ -49,9 +49,10 @@ struct MainBuilder {
   
   private static func setUpNavBarAppearance() {
     let appearance = UINavigationBarAppearance()
-    appearance.configureWithOpaqueBackground()
+    appearance.configureWithTransparentBackground()
     
     UINavigationBar.appearance().standardAppearance = appearance
     UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    UINavigationBar.appearance().tintColor = .systemGreen
   }
 }

@@ -22,11 +22,30 @@ final class SearchVC: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.isNavigationBarHidden = true
+    usernameTextField.text = ""
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationController?.isNavigationBarHidden = false
   }
 
   private func configure() {
     view.backgroundColor = .systemBackground
     logoImageView.image = UIImage(named: "gh-logo")
+    let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
+    view.addGestureRecognizer(tapGesture)
+    usernameTextField.delegate = self
+    getFollowersButton.addTarget(nil, action: #selector(pushFollowersListVC), for: .touchUpInside)
+  }
+
+  @objc private func pushFollowersListVC() {
+    guard !usernameTextField.text!.isEmpty else { return }
+
+    let followersListVC = FollowersListVC()
+    followersListVC.username = usernameTextField.text
+    followersListVC.title = usernameTextField.text
+    navigationController?.pushViewController(followersListVC, animated: true)
   }
 
   // Auto layout
@@ -52,5 +71,12 @@ final class SearchVC: UIViewController {
       make.trailing.equalToSuperview().offset(-50)
       make.height.equalTo(50)
     }
+  }
+}
+
+extension SearchVC: UITextFieldDelegate {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    pushFollowersListVC()
+    return true
   }
 }
