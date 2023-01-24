@@ -13,6 +13,7 @@ final class UserInfoVC: UIViewController {
   private let headerView = UIView()
   private let topItemView = UIView()
   private let bottomItemView = UIView()
+  private let dateLabel = GFBodyLabel(textAlignment: .center)
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,7 +37,7 @@ final class UserInfoVC: UIViewController {
   }
   
   private func layout() {
-    view.addSubviews(headerView, topItemView, bottomItemView)
+    view.addSubviews(headerView, topItemView, bottomItemView, dateLabel)
     
     headerView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -57,6 +58,11 @@ final class UserInfoVC: UIViewController {
       make.trailing.equalToSuperview().offset(-20)
       make.height.equalTo(140)
     }
+    
+    dateLabel.snp.makeConstraints { make in
+      make.top.equalTo(bottomItemView.snp.bottom).offset(20)
+      make.centerX.equalToSuperview()
+    }
   }
   
   private func add(childVC: UIViewController, to containerView: UIView) {
@@ -76,6 +82,7 @@ final class UserInfoVC: UIViewController {
           self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
           self.add(childVC: GFRepoItemVC(user: user), to: self.topItemView)
           self.add(childVC: GFFollowerItemVC(user: user), to: self.bottomItemView)
+          self.dateLabel.text = user.createdAt.convertToDate()?.convertToString()
         }
       case .failure(let failure):
         self.presentGFAlertOnMainThread(title: "Error Occured", body: failure.rawValue, buttonTitle: "Ok")
