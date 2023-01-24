@@ -5,11 +5,12 @@
 //  Created by Emir Alkal on 24.01.2023.
 //
 
-import Foundation
+import UIKit
 
 final class NetworkManager {
   static let shared = NetworkManager()
   private init() {}
+  let cache = NSCache<NSString, UIImage>()
 
   enum GFError: String, Error {
     case noUsername = "This username created an invalid request. Please try again."

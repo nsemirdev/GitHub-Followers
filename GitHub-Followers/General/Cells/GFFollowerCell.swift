@@ -48,9 +48,9 @@ final class GFFollowerCell: UICollectionViewCell {
       make.height.equalTo(20)
     }
   }
-  
+
   func configure(with follower: Follower) {
     usernameLabel.text = follower.username
-    avatarImageView.image = UIImage(named: "avatar-placeholder")
+    avatarImageView.downloadImage(from: follower.profileImage)
   }
 }
