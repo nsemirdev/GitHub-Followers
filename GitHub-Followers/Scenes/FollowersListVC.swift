@@ -9,12 +9,18 @@ import UIKit
 
 final class FollowersListVC: UIViewController {
   var username: String!
+  
   var followers = [Follower]() {
     didSet {
       DispatchQueue.main.async {
-        self.collectionView.reloadData()
+//        self.collectionView.reloadData()
+        self.updateData()
       }
     }
+  }
+  
+  private enum Section {
+    case main
   }
   
   private let collectionView: UICollectionView = {
@@ -29,12 +35,23 @@ final class FollowersListVC: UIViewController {
 
     layout.itemSize = .init(
       width: itemWidth,
-      height: itemWidth * 1.5
-    )
+      height: itemWidth * 1.5)
     
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.register(GFFollowerCell.self, forCellWithReuseIdentifier: GFFollowerCell.identifier)
     return collectionView
+  }()
+  
+  private lazy var dataSource: UICollectionViewDiffableDataSource<Section, Follower> = {
+    let dataSource = UICollectionViewDiffableDataSource<Section, Follower>(
+      collectionView: collectionView,
+      cellProvider: { collectionView, indexPath, follower in
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GFFollowerCell.identifier, for: indexPath) as! GFFollowerCell
+        cell.configure(with: follower)
+        return cell
+      })
+    
+    return dataSource
   }()
 
   override func viewDidLoad() {
@@ -42,6 +59,15 @@ final class FollowersListVC: UIViewController {
     configure()
     layout()
     fetchFollowers(on: 1)
+  }
+  
+  private func updateData() {
+    var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+    snapshot.appendSections([.main])
+    snapshot.appendItems(followers)
+    DispatchQueue.main.async {
+      self.dataSource.apply(snapshot, animatingDifferences: true)
+    }
   }
 
   private func fetchFollowers(on page: Int) {
@@ -59,28 +85,11 @@ final class FollowersListVC: UIViewController {
   private func configure() {
     view.backgroundColor = .white
     navigationController?.navigationBar.prefersLargeTitles = true
-    collectionView.dataSource = self
+    collectionView.dataSource = dataSource
     collectionView.frame = view.bounds
   }
   
   private func layout() {
     view.addSubview(collectionView)
-  }
-}
-
-extension FollowersListVC: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    followers.count
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GFFollowerCell.identifier, for: indexPath) as? GFFollowerCell else {
-      fatalError()
-    }
-    cell.configure(with: Follower(
-      username: followers[indexPath.row].username,
-      profileImage: "avatar-placeholder")
-    )
-    return cell
   }
 }
