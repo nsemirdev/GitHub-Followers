@@ -73,8 +73,10 @@ final class FollowersListVC: UIViewController {
   }
 
   private func fetchFollowers(on page: Int) {
+    showLoadingView()
     NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
       guard let self else { return }
+      self.dismissLoadingView()
       guard self.hasMoreFollowers else { return }
       
       switch result {
@@ -112,3 +114,5 @@ extension FollowersListVC: UICollectionViewDelegate {
     }
   }
 }
+
+extension FollowersListVC: FollowersShowable {}
