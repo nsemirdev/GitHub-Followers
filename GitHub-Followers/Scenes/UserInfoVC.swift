@@ -10,7 +10,9 @@ import UIKit
 
 final class UserInfoVC: UIViewController {
   var username: String!
-  let headerView = UIView()
+  private let headerView = UIView()
+  private let topItemView = UIView()
+  private let bottomItemView = UIView()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -34,13 +36,29 @@ final class UserInfoVC: UIViewController {
   }
   
   private func layout() {
-    view.addSubview(headerView)
+    view.addSubviews(headerView, topItemView, bottomItemView)
     headerView.backgroundColor = .systemPink
+    topItemView.backgroundColor = .systemTeal
+    bottomItemView.backgroundColor = .systemBlue
     
     headerView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
       make.leading.trailing.equalToSuperview()
       make.height.equalTo(180)
+    }
+    
+    topItemView.snp.makeConstraints { make in
+      make.top.equalTo(headerView.snp.bottom).offset(20)
+      make.leading.equalToSuperview().offset(20)
+      make.trailing.equalToSuperview().offset(-20)
+      make.height.equalTo(140)
+    }
+    
+    bottomItemView.snp.makeConstraints { make in
+      make.top.equalTo(topItemView.snp.bottom).offset(20)
+      make.leading.equalToSuperview().offset(20)
+      make.trailing.equalToSuperview().offset(-20)
+      make.height.equalTo(140)
     }
   }
   
