@@ -37,9 +37,6 @@ final class UserInfoVC: UIViewController {
   
   private func layout() {
     view.addSubviews(headerView, topItemView, bottomItemView)
-    headerView.backgroundColor = .systemPink
-    topItemView.backgroundColor = .systemTeal
-    bottomItemView.backgroundColor = .systemBlue
     
     headerView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -77,6 +74,8 @@ final class UserInfoVC: UIViewController {
       case .success(let user):
         DispatchQueue.main.async {
           self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
+          self.add(childVC: GFRepoItemVC(user: user), to: self.topItemView)
+          self.add(childVC: GFFollowerItemVC(user: user), to: self.bottomItemView)
         }
       case .failure(let failure):
         self.presentGFAlertOnMainThread(title: "Error Occured", body: failure.rawValue, buttonTitle: "Ok")

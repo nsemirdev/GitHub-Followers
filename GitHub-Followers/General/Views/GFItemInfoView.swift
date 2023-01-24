@@ -55,13 +55,13 @@ final class GFItemInfoView: UIView {
     addSubviews(symbolImageView, titleLabel, countLabel)
     
     symbolImageView.snp.makeConstraints { make in
-      make.top.leading.trailing.equalToSuperview()
+      make.top.leading.equalToSuperview()
       make.width.height.equalTo(20)
     }
     
     titleLabel.snp.makeConstraints { make in
       make.centerY.equalTo(symbolImageView.snp.centerY)
-      make.leading.equalTo(symbolImageView.snp.leading).offset(12)
+      make.leading.equalTo(symbolImageView.snp.trailing).offset(12)
       make.trailing.equalToSuperview()
       make.height.equalTo(18)
     }
