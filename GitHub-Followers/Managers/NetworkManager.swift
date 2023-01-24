@@ -16,13 +16,14 @@ final class NetworkManager {
     case noUsername = "This username created an invalid request. Please try again."
     case internetIssue = "Unable to complete your request. Please check your internet connection."
     case invalidData = "No data received from the server"
-    case canNotDecode = "The data received from the server was unexpected"
+    case canNotDecode = "API rate limit exceeded. Your limit 500 request per hour. Thanks your patience 🙃"
   }
 
   let baseURL = "https://api.github.com/"
 
   func getFollowers(for username: String, page: Int, completion: @escaping (Result<[Follower], GFError>) -> Void) {
     let wholeURL = baseURL + "users/" + username + "/followers?per_page=100&page=\(page)"
+    print(wholeURL)
     guard let url = URL(string: wholeURL) else {
       completion(.failure(.noUsername))
       return
