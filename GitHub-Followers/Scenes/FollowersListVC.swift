@@ -24,6 +24,8 @@ final class FollowersListVC: UIViewController {
     let minimumItemSpacing: CGFloat = 10
     let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
     let itemWidth = availableWidth / 3
+    
+    layout.sectionInset = .init(top: padding, left: padding, bottom: padding, right: padding)
 
     layout.itemSize = .init(
       width: itemWidth,
