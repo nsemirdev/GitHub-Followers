@@ -57,7 +57,7 @@ final class SearchVC: UIViewController {
 
   // Auto layout
   private func layout() {
-    view.addsubviews(logoImageView, usernameTextField, getFollowersButton)
+    view.addSubviews(logoImageView, usernameTextField, getFollowersButton)
 
     logoImageView.snp.makeConstraints { make in
       make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(80)

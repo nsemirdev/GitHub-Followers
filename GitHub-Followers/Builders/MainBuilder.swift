@@ -51,7 +51,10 @@ struct MainBuilder {
     let appearance = UINavigationBarAppearance()
     appearance.configureWithTransparentBackground()
     
-    UINavigationBar.appearance().standardAppearance = appearance
+    let scrollAppearance = UINavigationBarAppearance()
+    scrollAppearance.configureWithOpaqueBackground()
+    
+    UINavigationBar.appearance().standardAppearance = scrollAppearance
     UINavigationBar.appearance().scrollEdgeAppearance = appearance
     UINavigationBar.appearance().tintColor = .systemGreen
   }

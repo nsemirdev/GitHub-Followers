@@ -54,7 +54,7 @@ final class GFAlertVC: UIViewController {
   
   private func layout() {
     view.addSubview(containerView)
-    containerView.addsubviews(titleLabel, bodyLabel, actionButton)
+    containerView.addSubviews(titleLabel, bodyLabel, actionButton)
     
     containerView.snp.makeConstraints { make in
       make.center.equalToSuperview()
