@@ -124,6 +124,7 @@ extension FollowersListVC: FollowersShowable {}
 extension FollowersListVC: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+      updateData(on: followers)
       return
     }
     filteredFollowers = followers.filter {
