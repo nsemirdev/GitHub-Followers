@@ -57,6 +57,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D1E8087297FF12100AA9F08 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2D369B78297F303E00A3F60B /* SearchVC.swift */,
+				2D1E807D297FDCAA00AA9F08 /* FollowersListVC.swift */,
+				2D369B7A297F306400A3F60B /* FavoritesListVC.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		2D369B7E297F354D00A3F60B /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +147,7 @@
 				2D369B80297F356E00A3F60B /* Builders */,
 				2D369B7F297F355400A3F60B /* Resources */,
 				2D369B7E297F354D00A3F60B /* App */,
-				2D369B78297F303E00A3F60B /* SearchVC.swift */,
-				2D1E807D297FDCAA00AA9F08 /* FollowersListVC.swift */,
-				2D369B7A297F306400A3F60B /* FavoritesListVC.swift */,
+				2D1E8087297FF12100AA9F08 /* Scenes */,
 			);
 			path = "GitHub-Followers";
 			sourceTree = "<group>";
