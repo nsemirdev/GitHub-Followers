@@ -82,7 +82,7 @@ final class UserInfoVC: UIViewController {
           self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
           self.add(childVC: GFRepoItemVC(user: user), to: self.topItemView)
           self.add(childVC: GFFollowerItemVC(user: user), to: self.bottomItemView)
-          self.dateLabel.text = user.createdAt.convertToDate()?.convertToString()
+          self.dateLabel.text = "GitHub since \(user.createdAt.convertToDate()?.convertToString() ?? "N/A")"
         }
       case .failure(let failure):
         self.presentGFAlertOnMainThread(title: "Error Occured", body: failure.rawValue, buttonTitle: "Ok")
