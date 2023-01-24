@@ -83,6 +83,10 @@ final class FollowersListVC: UIViewController {
       case .success(let followers):
         self.hasMoreFollowers = followers.count < 100 ? false : true
         self.followers += followers
+        if self.followers.isEmpty {
+          self.showEmptyView()
+          return
+        }
         self.currentPage += 1
       case .failure(let error):
         self.presentGFAlertOnMainThread(title: "Error Occured", body: error.rawValue, buttonTitle: "Ok")

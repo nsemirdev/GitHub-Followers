@@ -15,7 +15,7 @@ protocol FollowersShowable where Self: UIViewController {
 
 extension FollowersShowable {
   func showLoadingView() {
-//    DispatchQueue.main.async {
+    DispatchQueue.main.async {
       containerView = UIView(frame: self.view.bounds)
       self.view.addSubview(containerView)
       containerView.backgroundColor = .systemBackground
@@ -29,13 +29,21 @@ extension FollowersShowable {
       containerView.addSubview(activityIndicator)
       activityIndicator.center = self.view.center
       activityIndicator.startAnimating()
-//    }
+    }
   }
   
   func dismissLoadingView() {
     DispatchQueue.main.async {
       containerView.removeFromSuperview()
       containerView = nil
+    }
+  }
+  
+  func showEmptyView() {
+    DispatchQueue.main.async {
+      containerView  = GFEmptyStateView()
+      containerView.frame = self.view.bounds
+      self.view.addSubview(containerView)
     }
   }
 }
