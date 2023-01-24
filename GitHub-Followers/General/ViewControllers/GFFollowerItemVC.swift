@@ -18,5 +18,10 @@ final class GFFollowerItemVC: GFItemInfoVC {
     rightItemInfoView.set(itemInfoType: .following, count: user.following)
     actionButton.backgroundColor = .systemGreen
     actionButton.setTitle("Get Followers", for: .normal)
+    actionButton.addTarget(nil, action: #selector(handleTap), for: .touchUpInside)
+  }
+  
+  @objc private func handleTap() {
+    delegate?.didTapGetFollowers(for: user)
   }
 }

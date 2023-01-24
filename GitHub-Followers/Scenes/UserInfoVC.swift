@@ -5,6 +5,7 @@
 //  Created by Emir Alkal on 24.01.2023.
 //
 
+import SafariServices
 import SnapKit
 import UIKit
 
@@ -14,6 +15,8 @@ final class UserInfoVC: UIViewController {
   private let topItemView = UIView()
   private let bottomItemView = UIView()
   private let dateLabel = GFBodyLabel(textAlignment: .center)
+  
+  weak var delegate: FollowersListVCDelegate?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -79,14 +82,46 @@ final class UserInfoVC: UIViewController {
       switch result {
       case .success(let user):
         DispatchQueue.main.async {
-          self.add(childVC: GFUserInfoHeaderVC(user: user), to: self.headerView)
-          self.add(childVC: GFRepoItemVC(user: user), to: self.topItemView)
-          self.add(childVC: GFFollowerItemVC(user: user), to: self.bottomItemView)
-          self.dateLabel.text = "GitHub since \(user.createdAt.convertToDate()?.convertToString() ?? "N/A")"
+          self.onSuccess(with: user)
         }
       case .failure(let failure):
         self.presentGFAlertOnMainThread(title: "Error Occured", body: failure.rawValue, buttonTitle: "Ok")
       }
     }
+  }
+  
+  private func onSuccess(with user: User) {
+    add(childVC: GFUserInfoHeaderVC(user: user), to: headerView)
+    let repoItemVC = GFRepoItemVC(user: user)
+    repoItemVC.delegate = self
+    
+    let followerItemVC = GFFollowerItemVC(user: user)
+    followerItemVC.delegate = self
+    
+    add(childVC: repoItemVC, to: topItemView)
+    add(childVC: followerItemVC, to: bottomItemView)
+    dateLabel.text = "GitHub since \(user.createdAt.convertToDate()?.convertToString() ?? "N/A")"
+  }
+}
+
+extension UserInfoVC: UserInfoVCDelegate {
+  func didTapGithubProfile(for user: User) {
+    guard let url = URL(string: user.htmlUrl) else {
+      presentGFAlertOnMainThread(
+        title: "Invalid URL",
+        body: "The url attached to this user is invalid",
+        buttonTitle: "Ok"
+      )
+      return
+    }
+    
+    let safariVC = SFSafariViewController(url: url)
+    safariVC.preferredControlTintColor = .systemGreen
+    present(safariVC, animated: true)
+  }
+  
+  func didTapGetFollowers(for user: User) {
+    dismissVC()
+    delegate?.didTapGetFollowersButton(for: user)
   }
 }

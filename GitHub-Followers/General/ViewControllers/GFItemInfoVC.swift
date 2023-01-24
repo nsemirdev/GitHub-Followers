@@ -15,7 +15,8 @@ class GFItemInfoVC: UIViewController {
   let actionButton = GFButton(backgroundColor: .white, title: "Go")
 
   var user: User!
-
+  weak var delegate: UserInfoVCDelegate?
+  
   init(user: User) {
     self.user = user
     super.init(nibName: nil, bundle: nil)

@@ -18,5 +18,10 @@ final class GFRepoItemVC: GFItemInfoVC {
     rightItemInfoView.set(itemInfoType: .gists, count: user.publicGists)
     actionButton.backgroundColor = .systemPurple
     actionButton.setTitle("Github Profile", for: .normal)
+    actionButton.addTarget(nil, action: #selector(handleTap), for: .touchUpInside)
+  }
+  
+  @objc private func handleTap() {
+    delegate?.didTapGithubProfile(for: user)
   }
 }
