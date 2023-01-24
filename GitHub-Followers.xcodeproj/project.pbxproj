@@ -12,6 +12,8 @@
 		2D1E8082297FE33C00AA9F08 /* GFBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E8081297FE33C00AA9F08 /* GFBodyLabel.swift */; };
 		2D1E8084297FE41300AA9F08 /* GFAlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E8083297FE41300AA9F08 /* GFAlertVC.swift */; };
 		2D1E8086297FED0800AA9F08 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E8085297FED0800AA9F08 /* UIViewController+.swift */; };
+		2D1E808A297FF52800AA9F08 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E8089297FF52800AA9F08 /* Follower.swift */; };
+		2D1E808C297FF9B100AA9F08 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D1E808B297FF9B100AA9F08 /* User.swift */; };
 		2D369B79297F303E00A3F60B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B78297F303E00A3F60B /* SearchVC.swift */; };
 		2D369B7B297F306400A3F60B /* FavoritesListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B7A297F306400A3F60B /* FavoritesListVC.swift */; };
 		2D369B7D297F333100A3F60B /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D369B7C297F333100A3F60B /* MainBuilder.swift */; };
@@ -31,6 +33,8 @@
 		2D1E8081297FE33C00AA9F08 /* GFBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFBodyLabel.swift; sourceTree = "<group>"; };
 		2D1E8083297FE41300AA9F08 /* GFAlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFAlertVC.swift; sourceTree = "<group>"; };
 		2D1E8085297FED0800AA9F08 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		2D1E8089297FF52800AA9F08 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
+		2D1E808B297FF9B100AA9F08 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2D369B78297F303E00A3F60B /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		2D369B7A297F306400A3F60B /* FavoritesListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListVC.swift; sourceTree = "<group>"; };
 		2D369B7C297F333100A3F60B /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
@@ -65,6 +69,15 @@
 				2D369B7A297F306400A3F60B /* FavoritesListVC.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2D1E8088297FF51E00AA9F08 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2D1E8089297FF52800AA9F08 /* Follower.swift */,
+				2D1E808B297FF9B100AA9F08 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		2D369B7E297F354D00A3F60B /* App */ = {
@@ -142,6 +155,7 @@
 		2DFE5E26297F254D00698BED /* GitHub-Followers */ = {
 			isa = PBXGroup;
 			children = (
+				2D1E8088297FF51E00AA9F08 /* Models */,
 				2D369B8A297F3BFC00A3F60B /* Extensions */,
 				2D369B83297F384F00A3F60B /* General */,
 				2D369B80297F356E00A3F60B /* Builders */,
@@ -229,12 +243,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D369B7B297F306400A3F60B /* FavoritesListVC.swift in Sources */,
+				2D1E808A297FF52800AA9F08 /* Follower.swift in Sources */,
 				2D369B79297F303E00A3F60B /* SearchVC.swift in Sources */,
 				2D369B82297F358000A3F60B /* GFButton.swift in Sources */,
 				2DFE5E28297F254D00698BED /* AppDelegate.swift in Sources */,
 				2D1E8084297FE41300AA9F08 /* GFAlertVC.swift in Sources */,
 				2D369B8C297F3C0400A3F60B /* UIView+.swift in Sources */,
 				2DFE5E2A297F254D00698BED /* SceneDelegate.swift in Sources */,
+				2D1E808C297FF9B100AA9F08 /* User.swift in Sources */,
 				2D1E8082297FE33C00AA9F08 /* GFBodyLabel.swift in Sources */,
 				2D369B7D297F333100A3F60B /* MainBuilder.swift in Sources */,
 				2D1E8086297FED0800AA9F08 /* UIViewController+.swift in Sources */,
