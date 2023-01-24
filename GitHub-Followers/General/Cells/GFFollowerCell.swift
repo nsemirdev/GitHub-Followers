@@ -29,7 +29,7 @@ final class GFFollowerCell: UICollectionViewCell {
   override func prepareForReuse() {
     super.prepareForReuse()
     usernameLabel.text = nil
-    avatarImageView.image = nil
+    avatarImageView.image = avatarImageView.placeholderImage
   }
 
   private func layout() {

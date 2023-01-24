@@ -9,7 +9,7 @@ import UIKit
 
 final class FollowersListVC: UIViewController {
   var username: String!
-  
+  var currentPage = 1
   var followers = [Follower]() {
     didSet {
       DispatchQueue.main.async {
@@ -18,6 +18,8 @@ final class FollowersListVC: UIViewController {
       }
     }
   }
+  
+  private var hasMoreFollowers = true
   
   private enum Section {
     case main
@@ -58,7 +60,7 @@ final class FollowersListVC: UIViewController {
     super.viewDidLoad()
     configure()
     layout()
-    fetchFollowers(on: 1)
+    fetchFollowers(on: currentPage)
   }
   
   private func updateData() {
@@ -73,9 +75,13 @@ final class FollowersListVC: UIViewController {
   private func fetchFollowers(on page: Int) {
     NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
       guard let self else { return }
+      guard self.hasMoreFollowers else { return }
+      
       switch result {
       case .success(let followers):
-        self.followers = followers
+        self.hasMoreFollowers = followers.count < 100 ? false : true
+        self.followers += followers
+        self.currentPage += 1
       case .failure(let error):
         self.presentGFAlertOnMainThread(title: "Error Occured", body: error.rawValue, buttonTitle: "Ok")
       }
@@ -86,10 +92,23 @@ final class FollowersListVC: UIViewController {
     view.backgroundColor = .white
     navigationController?.navigationBar.prefersLargeTitles = true
     collectionView.dataSource = dataSource
+    collectionView.delegate = self
     collectionView.frame = view.bounds
   }
   
   private func layout() {
     view.addSubview(collectionView)
+  }
+}
+
+extension FollowersListVC: UICollectionViewDelegate {
+  func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    let offSetY = scrollView.contentOffset.y
+    let contentHeight = scrollView.contentSize.height
+    let height = scrollView.frame.size.height
+    
+    if offSetY + height > contentHeight {
+      fetchFollowers(on: currentPage)
+    }
   }
 }
