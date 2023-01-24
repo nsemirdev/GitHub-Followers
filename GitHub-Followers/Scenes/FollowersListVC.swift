@@ -10,14 +10,8 @@ import UIKit
 final class FollowersListVC: UIViewController {
   var username: String!
   var currentPage = 1
-  var followers = [Follower]() {
-    didSet {
-      DispatchQueue.main.async {
-//        self.collectionView.reloadData()
-        self.updateData()
-      }
-    }
-  }
+  var followers = [Follower]()
+  var filteredFollowers = [Follower]()
   
   private var hasMoreFollowers = true
   
@@ -63,7 +57,7 @@ final class FollowersListVC: UIViewController {
     fetchFollowers(on: currentPage)
   }
   
-  private func updateData() {
+  private func updateData(on followers: [Follower]) {
     var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
     snapshot.appendSections([.main])
     snapshot.appendItems(followers)
@@ -83,6 +77,7 @@ final class FollowersListVC: UIViewController {
       case .success(let followers):
         self.hasMoreFollowers = followers.count < 100 ? false : true
         self.followers += followers
+        self.updateData(on: self.followers)
         if self.followers.isEmpty {
           self.showEmptyView()
           return
@@ -100,6 +95,11 @@ final class FollowersListVC: UIViewController {
     collectionView.dataSource = dataSource
     collectionView.delegate = self
     collectionView.frame = view.bounds
+    
+    let searchController = UISearchController()
+    searchController.searchResultsUpdater = self
+    searchController.searchBar.placeholder = "Search for a username"
+    navigationItem.searchController = searchController
   }
   
   private func layout() {
@@ -120,3 +120,15 @@ extension FollowersListVC: UICollectionViewDelegate {
 }
 
 extension FollowersListVC: FollowersShowable {}
+
+extension FollowersListVC: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    guard let filter = searchController.searchBar.text, !filter.isEmpty else {
+      return
+    }
+    filteredFollowers = followers.filter {
+      $0.username.lowercased().contains(filter.lowercased())
+    }
+    updateData(on: filteredFollowers)
+  }
+}
