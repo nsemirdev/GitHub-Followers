@@ -15,6 +15,7 @@ final class FollowersListVC: UIViewController {
   
   private var hasMoreFollowers = true
   private var isSearching = false
+  private var isLoading = false
   
   private enum Section {
     case main
@@ -69,6 +70,7 @@ final class FollowersListVC: UIViewController {
 
   private func fetchFollowers(on page: Int) {
     showLoadingView()
+    isLoading = true
     NetworkManager.shared.getFollowers(for: username, page: page) { [weak self] result in
       guard let self else { return }
       self.dismissLoadingView()
@@ -87,6 +89,8 @@ final class FollowersListVC: UIViewController {
       case .failure(let error):
         self.presentGFAlertOnMainThread(title: "Error Occured", body: error.rawValue, buttonTitle: "Ok")
       }
+      
+      self.isLoading = false
     }
   }
 
@@ -141,6 +145,7 @@ extension FollowersListVC: UICollectionViewDelegate {
     let height = scrollView.frame.size.height
     
     if offSetY + height > contentHeight {
+      guard !isLoading else { return }
       fetchFollowers(on: currentPage)
     }
   }
