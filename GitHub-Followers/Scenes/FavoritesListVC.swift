@@ -78,7 +78,30 @@ extension FavoritesListVC: UITableViewDataSource {
 }
 
 extension FavoritesListVC: UITableViewDelegate {
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let favorite = favorites[indexPath.row]
+    let destVC = FollowersListVC()
+    destVC.username = favorite.username
+    destVC.title = favorite.username
+    
+    navigationController?.pushViewController(destVC, animated: true)
+  }
+  
+  func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    guard editingStyle == .delete else { return }
+    
+    let favorite = favorites[indexPath.row]
+    favorites.remove(at: indexPath.row)
+    tableView.deleteRows(at: [indexPath], with: .left)
+    
+    PersistenceManager.shared.updateWith(favorite: favorite, actionType: .remove) { [weak self] str in
+      guard let self else { return }
+      guard str == nil else {
+        self.presentGFAlertOnMainThread(title: "Unable to remove", body: str!, buttonTitle: "Ok")
+        return
+      }
+    }
+  }
 }
 
 extension FavoritesListVC: FollowersShowable {}
