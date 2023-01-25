@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Follower: Decodable {
+struct Follower: Codable {
   let uuid = UUID()
   let username: String
   let profileImage: String

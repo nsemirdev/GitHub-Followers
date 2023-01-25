@@ -102,6 +102,33 @@ final class FollowersListVC: UIViewController {
     searchController.searchBar.delegate = self
     searchController.searchBar.placeholder = "Search for a username"
     navigationItem.searchController = searchController
+    
+    let addBarButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(handleAddButton))
+    navigationItem.rightBarButtonItem = addBarButton
+  }
+  
+  @objc private func handleAddButton() {
+    NetworkManager.shared.getUser(for: username) { [weak self] result in
+      guard let self else { return }
+      switch result {
+      case .success(let user):
+        let favorite = Follower(username: user.username, profileImage: user.profileImage)
+        PersistenceManager.shared.updateWith(favorite: favorite, actionType: .add) { [weak self] str in
+          guard let self else { return }
+          guard str == nil else {
+            self.presentGFAlertOnMainThread(title: "Something went wrong", body: str!, buttonTitle: "Ok")
+            return
+          }
+          self.presentGFAlertOnMainThread(
+            title: "Success!",
+            body: "You have successfully favorited this user 🎉.",
+            buttonTitle: "Ok"
+          )
+        }
+      case .failure(let error):
+        self.presentGFAlertOnMainThread(title: "Something went wrong", body: error.rawValue, buttonTitle: "Ok")
+      }
+    }
   }
   
   private func layout() {
