@@ -182,6 +182,7 @@ extension FollowersListVC: FollowersListVCDelegate {
     isSearching = false
     hasMoreFollowers = true
     title = user.username
+    collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
     fetchFollowers(on: currentPage)
   }
 }
