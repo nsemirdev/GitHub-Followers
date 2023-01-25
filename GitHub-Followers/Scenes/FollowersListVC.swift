@@ -99,7 +99,6 @@ final class FollowersListVC: UIViewController {
     
     let searchController = UISearchController()
     searchController.searchResultsUpdater = self
-    searchController.searchBar.delegate = self
     searchController.searchBar.placeholder = "Search for a username"
     navigationItem.searchController = searchController
     
@@ -122,8 +121,7 @@ final class FollowersListVC: UIViewController {
           self.presentGFAlertOnMainThread(
             title: "Success!",
             body: "You have successfully favorited this user 🎉.",
-            buttonTitle: "Ok"
-          )
+            buttonTitle: "Ok")
         }
       case .failure(let error):
         self.presentGFAlertOnMainThread(title: "Something went wrong", body: error.rawValue, buttonTitle: "Ok")
@@ -161,7 +159,7 @@ extension FollowersListVC: UICollectionViewDelegate {
 
 extension FollowersListVC: FollowersShowable {}
 
-extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension FollowersListVC: UISearchResultsUpdating {
   func updateSearchResults(for searchController: UISearchController) {
     guard let filter = searchController.searchBar.text, !filter.isEmpty else {
       updateData(on: followers)
@@ -172,11 +170,6 @@ extension FollowersListVC: UISearchResultsUpdating, UISearchBarDelegate {
       $0.username.lowercased().contains(filter.lowercased())
     }
     updateData(on: filteredFollowers)
-  }
-  
-  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-    isSearching = false
-    updateData(on: followers)
   }
 }
 
