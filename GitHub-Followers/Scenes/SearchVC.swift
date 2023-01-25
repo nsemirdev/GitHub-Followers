@@ -49,6 +49,7 @@ final class SearchVC: UIViewController {
       return
     }
 
+    usernameTextField.resignFirstResponder()
     let followersListVC = FollowersListVC()
     followersListVC.username = usernameTextField.text
     followersListVC.title = usernameTextField.text

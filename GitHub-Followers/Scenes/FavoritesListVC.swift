@@ -31,7 +31,7 @@ final class FavoritesListVC: UIViewController {
     tableView.dataSource = self
     tableView.delegate = self
     view.addSubview(tableView)
-    showEmptyView(title: "No Favorites?\nAdd one on the followers screen.")
+    showEmptyView(title: "No Favorites?\nAdd one on the followers screen.") 
   }
   
   override func viewDidLayoutSubviews() {
@@ -53,7 +53,6 @@ final class FavoritesListVC: UIViewController {
       case .success(let favorites):
         if !favorites.isEmpty {
           self.favorites = favorites
-          
         }
       case .failure(let error):
         self.presentGFAlertOnMainThread(title: "Error", body: error.localizedDescription, buttonTitle: "Ok")
