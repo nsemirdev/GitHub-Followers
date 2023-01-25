@@ -17,6 +17,13 @@ final class GFEmptyStateView: UIView {
     configure()
     layout()
   }
+  
+  init(title: String) {
+    super.init(frame: .zero)
+    configure()
+    layout()
+    informationLabel.text = title
+  }
 
   @available(*, unavailable)
   required init?(coder: NSCoder) {
@@ -26,8 +33,6 @@ final class GFEmptyStateView: UIView {
   private func configure() {
     informationLabel.numberOfLines = 3
     informationLabel.textColor = .secondaryLabel
-    informationLabel.text = "This user doesn't have any followers 🥹. Go follow them 😄."
-
     backgroundImageView.image = UIImage(named: "empty-state-logo")
   }
 
@@ -40,13 +45,6 @@ final class GFEmptyStateView: UIView {
       make.trailing.equalToSuperview().offset(-40)
       make.height.equalTo(200)
     }
-
-//    backgroundImageView.snp.makeConstraints { make in
-//      make.width.equalTo(frame.width * 1.3)
-//      make.height.equalTo(frame.width * 1.3)
-//      make.trailing.equalToSuperview().offset(200)
-//      make.bottom.equalToSuperview().offset(140)
-//    }
     
     backgroundImageView.snp.makeConstraints { make in
       make.height.equalTo(UIScreen.main.bounds.size.width * 1.3)

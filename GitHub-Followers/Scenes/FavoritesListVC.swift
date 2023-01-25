@@ -10,7 +10,10 @@ import UIKit
 final class FavoritesListVC: UIViewController {
   var favorites = [Follower]() {
     didSet {
-      tableView.reloadData()
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+        self.view.bringSubviewToFront(self.tableView)
+      }
     }
   }
   
@@ -18,6 +21,7 @@ final class FavoritesListVC: UIViewController {
     let tableView = UITableView()
     tableView.register(GFFavoriteCell.self, forCellReuseIdentifier: GFFavoriteCell.identifier)
     tableView.rowHeight = 80
+    
     return tableView
   }()
   
@@ -27,6 +31,7 @@ final class FavoritesListVC: UIViewController {
     tableView.dataSource = self
     tableView.delegate = self
     view.addSubview(tableView)
+    showEmptyView(title: "No Favorites?\nAdd one on the followers screen.")
   }
   
   override func viewDidLayoutSubviews() {
@@ -41,10 +46,15 @@ final class FavoritesListVC: UIViewController {
   }
   
   private func fetchFavorites() {
-    PersistenceManager.shared.retrieveFavorites { result in
+    PersistenceManager.shared.retrieveFavorites { [weak self] result in
+      guard let self else { return }
+      
       switch result {
       case .success(let favorites):
-        self.favorites = favorites
+        if !favorites.isEmpty {
+          self.favorites = favorites
+          
+        }
       case .failure(let error):
         self.presentGFAlertOnMainThread(title: "Error", body: error.localizedDescription, buttonTitle: "Ok")
       }
@@ -70,3 +80,5 @@ extension FavoritesListVC: UITableViewDataSource {
 extension FavoritesListVC: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
 }
+
+extension FavoritesListVC: FollowersShowable {}

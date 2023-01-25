@@ -39,9 +39,9 @@ extension FollowersShowable {
     }
   }
   
-  func showEmptyView() {
+  func showEmptyView(title: String) {
     DispatchQueue.main.async {
-      containerView  = GFEmptyStateView()
+      containerView  = GFEmptyStateView(title: title)
       containerView.frame = self.view.bounds
       self.view.addSubview(containerView)
     }

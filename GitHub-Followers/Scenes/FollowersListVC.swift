@@ -80,7 +80,7 @@ final class FollowersListVC: UIViewController {
         self.followers += followers
         self.updateData(on: self.followers)
         if self.followers.isEmpty {
-          self.showEmptyView()
+          self.showEmptyView(title: "This user doesn't have any followers 🥹. Go follow them 😄.")
           return
         }
         self.currentPage += 1
